@@ -1,0 +1,63 @@
+{
+  "name": "api-working-hours",
+  "version": "1.0.0",
+  "description": "Express & Sequelize restful api.",
+  "main": "src/server.js",
+  "author": "Rennan Ribas <rennanrr@hotmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rennanrr/api-working-hours.git"
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@hapi/joi": "^17.1.0",
+    "amqplib": "^0.5.3",
+    "axios": "^0.18.0",
+    "babel-preset-latest-node": "^3.2.1",
+    "body-parser": "^1.18.3",
+    "btoa": "^1.2.1",
+    "cloudinary": "^1.14.0",
+    "dotenv": "^6.2.0",
+    "dotenv-safe": "^6.1.0",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "milsymbol": "^2.0.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.4.2",
+    "nodemon": "^1.18.10",
+    "parse-database-url": "^0.3.0",
+    "pg": "^7.8.2",
+    "pg-hstore": "^2.3.2",
+    "qs": "^6.7.0",
+    "sequelize": "^4.43.0",
+    "sequelize-cli": "^5.4.0",
+    "shortid": "^2.2.14"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-preset-latest-node": "^3.2.1",
+    "nodemon": "^1.18.10",
+    "sequelize-cli": "5.4.0"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node src/server.js",
+    "local": "set NODE_ENV=dev && npm start",
+    "serve": "nodemon src/server.js --exec \"babel-node\"",
+    "build": "babel src --out-dir build",
+    "compile": "babel src --out-dir .compiled --source-maps --watch"
+  },
+  "engine": {
+    "node": "10.15.3"
+  }
+}
