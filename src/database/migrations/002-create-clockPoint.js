@@ -1,32 +1,32 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', {
+    return queryInterface.createTable('clockPoints', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      id_user: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
-      email: {
-        allowNull: false,
-        type: Sequelize.STRING
+      arrive:{
+        type: Sequelize.DATE
       },
-      password: {
-        allowNull: false,
-        type: Sequelize.STRING
+      exit:{
+        type: Sequelize.DATE
       },
-      dailyMinutes: {
-        allowNull: false,
-        type: Sequelize.INTEGER
+      lunch_exit:{
+        type: Sequelize.DATE
       },
-      monthlyMinutes: {
-        allowNull: false,
-        type: Sequelize.INTEGER
+      lunch_arrive:{
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
@@ -39,6 +39,6 @@ module.exports = {
     })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('users');
+    return queryInterface.dropTable('clockPoints');
   }
 };

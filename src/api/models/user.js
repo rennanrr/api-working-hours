@@ -20,6 +20,14 @@ const User = db.define('user', {
     allowNull: false,
     type: Sequelize.STRING
   },
+  dailyMinutes: {
+    allowNull: false,
+    type: Sequelize.INTEGER
+  },
+  monthlyMinutes: {
+    allowNull: false,
+    type: Sequelize.INTEGER
+  },
   createdAt: {
     allowNull: false,
     type: Sequelize.DATE

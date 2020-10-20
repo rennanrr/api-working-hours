@@ -1,7 +1,6 @@
 import Model from '../models/user';
 
 class UserDao {
-//where: `user_username ='${userName}' and user_password='${password}'`
     async findByEmailAndPassword(query) {
         return Model.findOne({
             where: query,
