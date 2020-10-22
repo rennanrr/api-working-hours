@@ -8,20 +8,8 @@ class UserDao {
           });
     }
 
-    async findAll() {
-        return Model.findAll({});      
-    }
-
     async findByQuery(query) {
         return Model.findAll({where: query});      
-    }
-
-    async findAllByType(admin) {
-        return Model.findAll({
-            where: {
-                admin: admin
-            }
-        });       
     }
 
     async create(user) {
