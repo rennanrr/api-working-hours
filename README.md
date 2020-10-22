@@ -1,8 +1,12 @@
 ## Tech
 
-- Node v10.15.3
-- Sequelize v4.43.0
-- PostGreSQL v9.5.14
+- Node
+- Express
+- Sequelize
+- PostGreSQL
+- JWT
+- Axios
+- Nodemon
 
 ## Routes:
 
@@ -27,9 +31,18 @@ NODE_ENV=dev node_modules/.bin/sequelize db:migrate
 ```
 
 ### Insert data into your database
-Run the command below to start your database with some pre-defined data
+Run the command below to start your database with pre-defined data (there is two users, you can check in src/database/seeders/001-demo-user.js)
 ```
 NODE_ENV=dev node_modules/.bin/sequelize db:seed:all
+```
+To access with user examples, use these credentials:
+```
+Email: edney.cruz@oowlish.com
+Password: 1234
+```
+```
+Email: rennanrr@hotmail.com
+Password: 1234
 ```
 
 ### Mistakes happens :)
