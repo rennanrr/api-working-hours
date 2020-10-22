@@ -1,7 +1,7 @@
-import user from '../api/routes/user';
-
 import packageJson from '../../package.json';
 import jwt from 'jsonwebtoken';
+import user from '../api/routes/user';
+import clockPoint from '../api/routes/clockPoint';
 
 const API_V1 = '/api/v1';
 
@@ -15,7 +15,7 @@ export default app => {
       const token = req.headers.authorization;
       
       if (token) {
-        jwt.verify(token, process.env.SECRET || 'rolerzinx', (err, decoded) => {
+        jwt.verify(token, process.env.SECRET || 'oowlish', (err, decoded) => {
           if (err) {
             console.log(`[VALIDATION] Falha de validação, token inválido`);
             console.log(err);
@@ -35,4 +35,5 @@ export default app => {
   });
 
   app.use(API_V1, user);
+  app.use(API_V1, clockPoint);
 }

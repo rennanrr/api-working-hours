@@ -14,14 +14,4 @@ const router = express.Router();
         .put(Ctrl.update)
         
         .delete(Ctrl.delete);
-
-    router.route('/user/exists/:userName')
-        .get(Ctrl.checkUserNameTaken);
-
-    router.route('/user/getByType/:user_admin')
-        .get(Ctrl.findAllByType);
-
-    router.route('/user/getAll')
-        .get(Ctrl.findAll);
-
 export default router;

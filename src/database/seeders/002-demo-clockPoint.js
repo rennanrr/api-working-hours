@@ -6,10 +6,10 @@ module.exports = {
     return queryInterface.bulkInsert('clockPoints', [{
       id: 1,
       id_user: 1,
-      arrive: new Date(2020,10,19,7,0,0),
-      exit: new Date(2020,10,19,17,0,0),
-      lunch_exit: new Date(2020,10,19,12,30,0),
-      lunch_arrive: new Date(2020,10,19,12,30,0),
+      arrive: '2020-11-19T7:00:00.000Z',
+      exit: '2020-11-19T17:30:00.000Z',
+      lunch_exit: '2020-11-19T12:30:00.000Z',
+      lunch_arrive: '2020-11-19T13:30:00.000Z',
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

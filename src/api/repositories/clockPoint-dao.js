@@ -2,6 +2,7 @@ import Model from '../models/clockPoint';
 
 class ClockPointDao {
     async findByQuery(query) {
+      console.log(query);
         return Model.findAll({where: query});      
     }
 

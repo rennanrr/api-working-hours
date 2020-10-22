@@ -1,17 +1,22 @@
 import Repo from '../repositories/clockPoint-dao';
+import jwt from 'jsonwebtoken';
 
 class ClockPointCtrl {
     async create (req, res) {
+      let resp;
+      try {
         const clockPoint = req.body;
+        clockPoint.id_user = jwt.decode(req.headers.authorization).id;
         clockPoint.createdAt = Date.now();
         clockPoint.updatedAt = Date.now();
-
-        const resp = await Repo.create(user);
+        resp = await Repo.create(clockPoint);
         if(resp) {
           res.status(204).json(resp);
-      } else {
-          res.status(404).json({ message: 'Fail'})
-      }  
+        } else {
+          res.status(404).json({ message: 'Fail'});
+        }
+      }
+      catch(e) {res.status(404).json({ message: e})}  
     }
 
     async update (req, res) {
@@ -30,9 +35,9 @@ class ClockPointCtrl {
     async findByQuery (req, res) {
         console.log('####################################');
         console.log(`Finding ${req.query} on clock point`);
-        const resp = await Repo.findByQuery(req.query);
+        const resp = await Repo.findByQuery( req.query );
         if(resp) {
-            res.json(resp);
+            res.status(200).json(resp);
         } else {
             res.status(404).json({ message: 'Fail'})
         }  

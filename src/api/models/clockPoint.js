@@ -17,15 +17,19 @@ const ClockPoint = db.define('clockPoint', {
     }
   },
   arrive:{
+    allowNull: false,
     type: Sequelize.DATE
   },
   exit:{
+    allowNull: false,
     type: Sequelize.DATE
   },
   lunch_exit:{
+    allowNull: false,
     type: Sequelize.DATE
   },
   lunch_arrive:{
+    allowNull: false,
     type: Sequelize.DATE
   },
   createdAt: {

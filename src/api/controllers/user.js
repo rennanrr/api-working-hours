@@ -11,7 +11,7 @@ class UserCtrl {
             console.log(`User ${user.name} authenticated`);
             console.log('Authentication Token added to response');
             console.log(user);
-            const token = jwt.sign({id: user.id, email: user.email, type: user.type, theme: user.theme, name: user.name, stayLogin: req.body.stayLogin}, process.env.SECRET || 'rolerzinx', {
+            const token = jwt.sign({id: user.id, email: user.email, name: user.name, dailyMinutes: user.dailyMinutes, monthlyMinutes: user.monthlyMinutes }, process.env.SECRET || 'oowlish', {
                 expiresIn: 86400 // seconds, 24h
             });
             res.header('x-access-token', token);
@@ -49,39 +49,12 @@ class UserCtrl {
         res.status(202).json('delete ok');
     }
 
-    async checkUserNameTaken (req, res) {
-        const { user_userName } = req.params;
-        const user = await Repo.findByName(user_userName);
-        res.json(!!user);
-    }
-
-    async findAll (req, res) {
-        console.log('####################################');
-        console.log(`Finding all users on table user`)
-        const users = await Repo.findAll();
-        if(users) {
-            res.json(users);
-        } else {
-            res.status(404).json({ message: 'Fail'})
-        }  
-    }
-
     async findByQuery (req, res) {
         console.log('####################################');
         console.log(`Finding ${req.query} on table user`);
         const user = await Repo.findByQuery(req.query);
         if(user) {
             res.json(user);
-        } else {
-            res.status(404).json({ message: 'Fail'})
-        }  
-    }
-
-    async findAllByType (req, res) {
-        const { user_admin } = req.params;
-        const users = await Repo.findAllByType(user_admin);
-        if(users) {
-            res.json(users);
         } else {
             res.status(404).json({ message: 'Fail'})
         }  
